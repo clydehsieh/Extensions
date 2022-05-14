@@ -16,6 +16,7 @@
 		ECA06342282F8CF300DB581F /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA06341282F8CF300DB581F /* ExtensionsTests.swift */; };
 		ECA0634C282F8CF300DB581F /* ExtensionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0634B282F8CF300DB581F /* ExtensionsUITests.swift */; };
 		ECA0634E282F8CF300DB581F /* ExtensionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0634D282F8CF300DB581F /* ExtensionsUITestsLaunchTests.swift */; };
+		ECE23D6E282F8F4500543C9D /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE23D6D282F8F4500543C9D /* Int+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		ECA06347282F8CF300DB581F /* ExtensionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExtensionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0634B282F8CF300DB581F /* ExtensionsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsUITests.swift; sourceTree = "<group>"; };
 		ECA0634D282F8CF300DB581F /* ExtensionsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECE23D6D282F8F4500543C9D /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +104,8 @@
 				ECA0632A282F8CF100DB581F /* AppDelegate.swift */,
 				ECA0632C282F8CF100DB581F /* SceneDelegate.swift */,
 				ECA0632E282F8CF100DB581F /* ViewController.swift */,
-				ECA06330282F8CF100DB581F /* Main.storyboard */,
-				ECA06333282F8CF300DB581F /* Assets.xcassets */,
-				ECA06335282F8CF300DB581F /* LaunchScreen.storyboard */,
-				ECA06338282F8CF300DB581F /* Info.plist */,
+				ECA0635B282F8D2700DB581F /* Extension */,
+				ECA0635A282F8D1A00DB581F /* Source */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -125,6 +125,25 @@
 				ECA0634D282F8CF300DB581F /* ExtensionsUITestsLaunchTests.swift */,
 			);
 			path = ExtensionsUITests;
+			sourceTree = "<group>";
+		};
+		ECA0635A282F8D1A00DB581F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				ECA06330282F8CF100DB581F /* Main.storyboard */,
+				ECA06333282F8CF300DB581F /* Assets.xcassets */,
+				ECA06335282F8CF300DB581F /* LaunchScreen.storyboard */,
+				ECA06338282F8CF300DB581F /* Info.plist */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		ECA0635B282F8D2700DB581F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ECE23D6D282F8F4500543C9D /* Int+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE23D6E282F8F4500543C9D /* Int+Extension.swift in Sources */,
 				ECA0632F282F8CF100DB581F /* ViewController.swift in Sources */,
 				ECA0632B282F8CF100DB581F /* AppDelegate.swift in Sources */,
 				ECA0632D282F8CF100DB581F /* SceneDelegate.swift in Sources */,
@@ -439,7 +459,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XLY67UA89A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Extensions/Info.plist;
+				INFOPLIST_FILE = Extensions/Source/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -467,7 +487,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XLY67UA89A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Extensions/Info.plist;
+				INFOPLIST_FILE = Extensions/Source/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
