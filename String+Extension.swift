@@ -78,3 +78,54 @@ extension String {
         return String(self[start ..< end])
     }
 }
+
+
+//MARK: - NSAttributedString
+extension String {
+    func attributed(attributes: [NSAttributedString.Key: Any]? = nil) -> NSAttributedString {
+        NSAttributedString(string: self, attributes: attributes)
+    }
+    
+    func foregroundColor(_ color: UIColor) -> NSAttributedString {
+        attributed(attributes: [.foregroundColor: color])
+    }
+    
+    func font(_ font: UIFont) -> NSAttributedString {
+        attributed(attributes: [.font: font])
+    }
+    
+    func paragraphStyle(_ style: NSParagraphStyle) -> NSAttributedString {
+        attributed(attributes: [.paragraphStyle: style])
+    }
+    
+    func baselineOffset(_ offset: CGFloat) -> NSAttributedString {
+        attributed(attributes: [.baselineOffset: offset])
+    }
+    
+    func underlineStyle(_ style: NSUnderlineStyle) -> NSAttributedString {
+        attributed(attributes: [.underlineStyle: style.rawValue])
+    }
+    
+    func link(url: URL) -> NSAttributedString {
+        attributed(attributes: [.link: url])
+    }
+    
+    func lineHeight(_ height: CGFloat) -> NSAttributedString {
+        let style = NSMutableParagraphStyle()
+        style.minimumLineHeight = height
+        style.maximumLineHeight = height
+        return attributed(attributes: [.paragraphStyle: style])
+    }
+    
+    func prettyAttributed(textColor: UIColor, font: UIFont, textAlignment: NSTextAlignment = .left) -> NSAttributedString {
+        let lineHeightMultiple: CGFloat = 1.2
+        let offset = font.pointSize * (lineHeightMultiple - 1) / 2
+        let style = NSMutableParagraphStyle()
+        style.lineHeightMultiple = lineHeightMultiple
+        style.alignment = textAlignment
+        return foregroundColor(textColor)
+            .font(font)
+            .paragraphStyle(style)
+            .baselineOffset(offset)
+    }
+}
