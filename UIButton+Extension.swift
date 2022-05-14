@@ -7,7 +7,6 @@
 import UIKit
 
 private var buttonTouchEdgeInsets: Void?
-
 extension UIButton {
 
     var touchEdgeInsets: UIEdgeInsets? {
