@@ -6,6 +6,56 @@
 //
 
 import UIKit
+import CoreImage
+import CoreImage.CIFilterBuiltins
+
+//MARK: - render
+extension UIImage {
+    static func squarePoint(color: UIColor) -> UIImage {
+        UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1))
+            .image { context in
+                color.setFill()
+                context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+            }
+    }
+    
+    static func circle(diameter: CGFloat, color: UIColor) -> UIImage {
+        UIGraphicsImageRenderer(size: CGSize(width: diameter, height: diameter))
+            .image { context in
+                color.setFill()
+                context.cgContext.fillEllipse(in: CGRect(x: 0, y: 0, width: diameter, height: diameter))
+            }
+    }
+    
+    func blur(amount: Float) -> UIImage? {
+        let context = CIContext(options: nil)
+        let blur = CIFilter.gaussianBlur()
+        blur.inputImage = CIImage(image: self)
+        blur.radius = amount
+
+        if let output = blur.outputImage {
+            if let cgimg = context.createCGImage(output, from: output.extent) {
+                let processedImage = UIImage(cgImage: cgimg)
+                return processedImage
+            }
+        }
+        
+        return nil
+    }
+    
+    convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1), blur: CGFloat? = nil) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
+    }
+}
+
 
 //MARK: - convert
 extension UIImage {
